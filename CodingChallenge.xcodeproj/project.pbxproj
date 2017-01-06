@@ -14,10 +14,9 @@
 		823D639F1E1F7E2900F52F1A /* CodingChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 823D639D1E1F7E2900F52F1A /* CodingChallenge.xcdatamodeld */; };
 		823D63A11E1F7E2900F52F1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 823D63A01E1F7E2900F52F1A /* Assets.xcassets */; };
 		823D63A41E1F7E2900F52F1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 823D63A21E1F7E2900F52F1A /* LaunchScreen.storyboard */; };
-		823D63AC1E1F7EE400F52F1A /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D63AB1E1F7EE400F52F1A /* Constant.swift */; };
-		823D63AE1E1F7F0E00F52F1A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D63AD1E1F7F0E00F52F1A /* API.swift */; };
 		823D63B11E1F7F4200F52F1A /* Play-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 823D63AF1E1F7F4200F52F1A /* Play-Bold.ttf */; };
 		823D63B21E1F7F4200F52F1A /* Play-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 823D63B01E1F7F4200F52F1A /* Play-Regular.ttf */; };
+		82CD3B761E1FA58600D027D0 /* CustomWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD3B751E1FA58600D027D0 /* CustomWeatherTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,10 +29,9 @@
 		823D63A01E1F7E2900F52F1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		823D63A31E1F7E2900F52F1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		823D63A51E1F7E2900F52F1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		823D63AB1E1F7EE400F52F1A /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		823D63AD1E1F7F0E00F52F1A /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		823D63AF1E1F7F4200F52F1A /* Play-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Play-Bold.ttf"; sourceTree = "<group>"; };
 		823D63B01E1F7F4200F52F1A /* Play-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Play-Regular.ttf"; sourceTree = "<group>"; };
+		82CD3B751E1FA58600D027D0 /* CustomWeatherTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWeatherTableViewCell.swift; sourceTree = "<group>"; };
 		A9998E4A1611D1A69666E5B4 /* Pods_CodingChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodingChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA1CF55676F46C3C1DFD8B2E /* Pods-CodingChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodingChallenge/Pods-CodingChallenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,14 +80,13 @@
 				823D63AF1E1F7F4200F52F1A /* Play-Bold.ttf */,
 				823D63B01E1F7F4200F52F1A /* Play-Regular.ttf */,
 				823D63961E1F7E2900F52F1A /* AppDelegate.swift */,
-				823D63981E1F7E2900F52F1A /* ViewController.swift */,
-				823D639A1E1F7E2900F52F1A /* Main.storyboard */,
 				823D63A01E1F7E2900F52F1A /* Assets.xcassets */,
 				823D63A21E1F7E2900F52F1A /* LaunchScreen.storyboard */,
 				823D63A51E1F7E2900F52F1A /* Info.plist */,
 				823D639D1E1F7E2900F52F1A /* CodingChallenge.xcdatamodeld */,
-				823D63AB1E1F7EE400F52F1A /* Constant.swift */,
-				823D63AD1E1F7F0E00F52F1A /* API.swift */,
+				823D639A1E1F7E2900F52F1A /* Main.storyboard */,
+				823D63981E1F7E2900F52F1A /* ViewController.swift */,
+				82CD3B751E1FA58600D027D0 /* CustomWeatherTableViewCell.swift */,
 			);
 			path = CodingChallenge;
 			sourceTree = "<group>";
@@ -228,11 +225,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82CD3B761E1FA58600D027D0 /* CustomWeatherTableViewCell.swift in Sources */,
 				823D639F1E1F7E2900F52F1A /* CodingChallenge.xcdatamodeld in Sources */,
 				823D63991E1F7E2900F52F1A /* ViewController.swift in Sources */,
 				823D63971E1F7E2900F52F1A /* AppDelegate.swift in Sources */,
-				823D63AC1E1F7EE400F52F1A /* Constant.swift in Sources */,
-				823D63AE1E1F7F0E00F52F1A /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
