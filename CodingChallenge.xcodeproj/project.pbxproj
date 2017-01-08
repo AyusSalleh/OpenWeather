@@ -17,11 +17,13 @@
 		823D63B11E1F7F4200F52F1A /* Play-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 823D63AF1E1F7F4200F52F1A /* Play-Bold.ttf */; };
 		823D63B21E1F7F4200F52F1A /* Play-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 823D63B01E1F7F4200F52F1A /* Play-Regular.ttf */; };
 		82CD3B761E1FA58600D027D0 /* CustomWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD3B751E1FA58600D027D0 /* CustomWeatherTableViewCell.swift */; };
+		82CD3B781E228EFD00D027D0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD3B771E228EFD00D027D0 /* BaseViewController.swift */; };
+		82CD3B7A1E2293BD00D027D0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD3B791E2293BD00D027D0 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		689A9B8CC8E9DDD83E97B1A5 /* Pods-CodingChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodingChallenge/Pods-CodingChallenge.debug.xcconfig"; sourceTree = "<group>"; };
-		823D63931E1F7E2900F52F1A /* OpenWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		823D63931E1F7E2900F52F1A /* OpenWeatherMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenWeatherMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		823D63961E1F7E2900F52F1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		823D63981E1F7E2900F52F1A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		823D639B1E1F7E2900F52F1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -32,6 +34,8 @@
 		823D63AF1E1F7F4200F52F1A /* Play-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Play-Bold.ttf"; sourceTree = "<group>"; };
 		823D63B01E1F7F4200F52F1A /* Play-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Play-Regular.ttf"; sourceTree = "<group>"; };
 		82CD3B751E1FA58600D027D0 /* CustomWeatherTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWeatherTableViewCell.swift; sourceTree = "<group>"; };
+		82CD3B771E228EFD00D027D0 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		82CD3B791E2293BD00D027D0 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A9998E4A1611D1A69666E5B4 /* Pods_CodingChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodingChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA1CF55676F46C3C1DFD8B2E /* Pods-CodingChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodingChallenge/Pods-CodingChallenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,7 +73,7 @@
 		823D63941E1F7E2900F52F1A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				823D63931E1F7E2900F52F1A /* OpenWeather.app */,
+				823D63931E1F7E2900F52F1A /* OpenWeatherMap.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,14 +83,16 @@
 			children = (
 				823D63AF1E1F7F4200F52F1A /* Play-Bold.ttf */,
 				823D63B01E1F7F4200F52F1A /* Play-Regular.ttf */,
-				823D63961E1F7E2900F52F1A /* AppDelegate.swift */,
 				823D63A01E1F7E2900F52F1A /* Assets.xcassets */,
 				823D63A21E1F7E2900F52F1A /* LaunchScreen.storyboard */,
 				823D63A51E1F7E2900F52F1A /* Info.plist */,
 				823D639D1E1F7E2900F52F1A /* CodingChallenge.xcdatamodeld */,
+				823D63961E1F7E2900F52F1A /* AppDelegate.swift */,
 				823D639A1E1F7E2900F52F1A /* Main.storyboard */,
 				823D63981E1F7E2900F52F1A /* ViewController.swift */,
 				82CD3B751E1FA58600D027D0 /* CustomWeatherTableViewCell.swift */,
+				82CD3B771E228EFD00D027D0 /* BaseViewController.swift */,
+				82CD3B791E2293BD00D027D0 /* DetailViewController.swift */,
 			);
 			path = CodingChallenge;
 			sourceTree = "<group>";
@@ -120,7 +126,7 @@
 			);
 			name = CodingChallenge;
 			productName = CodingChallenge;
-			productReference = 823D63931E1F7E2900F52F1A /* OpenWeather.app */;
+			productReference = 823D63931E1F7E2900F52F1A /* OpenWeatherMap.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -225,8 +231,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82CD3B781E228EFD00D027D0 /* BaseViewController.swift in Sources */,
 				82CD3B761E1FA58600D027D0 /* CustomWeatherTableViewCell.swift in Sources */,
 				823D639F1E1F7E2900F52F1A /* CodingChallenge.xcdatamodeld in Sources */,
+				82CD3B7A1E2293BD00D027D0 /* DetailViewController.swift in Sources */,
 				823D63991E1F7E2900F52F1A /* ViewController.swift in Sources */,
 				823D63971E1F7E2900F52F1A /* AppDelegate.swift in Sources */,
 			);
@@ -353,7 +361,7 @@
 				INFOPLIST_FILE = CodingChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SubZ3r0X.CodingChallenge;
-				PRODUCT_NAME = OpenWeather;
+				PRODUCT_NAME = OpenWeatherMap;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -366,7 +374,7 @@
 				INFOPLIST_FILE = CodingChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SubZ3r0X.CodingChallenge;
-				PRODUCT_NAME = OpenWeather;
+				PRODUCT_NAME = OpenWeatherMap;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

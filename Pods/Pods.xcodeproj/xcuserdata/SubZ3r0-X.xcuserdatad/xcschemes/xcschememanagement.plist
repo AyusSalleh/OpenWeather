@@ -9,7 +9,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>MBProgressHUD.xcscheme</key>
+		<key>EZLoadingActivity.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,22 +42,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2E2E43594F708AB84F4535410A122C32</key>
+		<key>355B2B0B72C7BF93E7C26A44A2435658</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>39BFB01AB1761A3CF5381E8EE4338233</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6B1714E816AE794962516E2ECBB40A5A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>71E42718672AF5C99D3206E98FB9F87C</key>
+		<key>58939D9004573F921E77814FB9E4FC94</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -68,6 +58,16 @@
 			<true/>
 		</dict>
 		<key>A63B74CA9090DD5F4B184DA77A5D5516</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B68B30BAA59D3C581E36B229F5026576</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BB1CB6E6ABAF6ADC3B0BE63092DB2A6C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
