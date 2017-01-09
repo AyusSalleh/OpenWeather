@@ -51,19 +51,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yeB-fG-ujW">
-                                                    <rect key="frame" x="8" y="8" width="78" height="65.5"/>
+                                                    <rect key="frame" x="8" y="8" width="78" height="66"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="78" id="sZW-1o-kgC"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cloudy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISy-uV-cRr">
-                                                    <rect key="frame" x="94" y="27.5" width="113" height="18"/>
+                                                    <rect key="frame" x="94" y="28" width="113" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSi-ER-cgF">
-                                                    <rect key="frame" x="94" y="47.5" width="113" height="18"/>
+                                                    <rect key="frame" x="94" y="48" width="113" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="113" id="Rco-XM-Asc"/>
                                                     </constraints>
