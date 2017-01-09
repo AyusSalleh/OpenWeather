@@ -19,6 +19,7 @@
 		82CD3B761E1FA58600D027D0 /* CustomWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD3B751E1FA58600D027D0 /* CustomWeatherTableViewCell.swift */; };
 		82CD3B781E228EFD00D027D0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD3B771E228EFD00D027D0 /* BaseViewController.swift */; };
 		82CD3B7A1E2293BD00D027D0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD3B791E2293BD00D027D0 /* DetailViewController.swift */; };
+		82CD3B851E233A4300D027D0 /* EZLoadingActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD3B841E233A4300D027D0 /* EZLoadingActivity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		82CD3B751E1FA58600D027D0 /* CustomWeatherTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWeatherTableViewCell.swift; sourceTree = "<group>"; };
 		82CD3B771E228EFD00D027D0 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		82CD3B791E2293BD00D027D0 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		82CD3B841E233A4300D027D0 /* EZLoadingActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZLoadingActivity.swift; sourceTree = "<group>"; };
 		A9998E4A1611D1A69666E5B4 /* Pods_CodingChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodingChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA1CF55676F46C3C1DFD8B2E /* Pods-CodingChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodingChallenge/Pods-CodingChallenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +83,7 @@
 		823D63951E1F7E2900F52F1A /* CodingChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				82CD3B861E233A5F00D027D0 /* ProgressHUD */,
 				82CD3B831E23343900D027D0 /* Font */,
 				82CD3B821E23342B00D027D0 /* BaseView */,
 				82CD3B811E23341B00D027D0 /* ViewController */,
@@ -127,6 +130,14 @@
 				823D63B01E1F7F4200F52F1A /* Play-Regular.ttf */,
 			);
 			name = Font;
+			sourceTree = "<group>";
+		};
+		82CD3B861E233A5F00D027D0 /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				82CD3B841E233A4300D027D0 /* EZLoadingActivity.swift */,
+			);
+			name = ProgressHUD;
 			sourceTree = "<group>";
 		};
 		93008EB01B6E82450AA014D6 /* Pods */ = {
@@ -264,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82CD3B781E228EFD00D027D0 /* BaseViewController.swift in Sources */,
+				82CD3B851E233A4300D027D0 /* EZLoadingActivity.swift in Sources */,
 				82CD3B761E1FA58600D027D0 /* CustomWeatherTableViewCell.swift in Sources */,
 				823D639F1E1F7E2900F52F1A /* CodingChallenge.xcdatamodeld in Sources */,
 				82CD3B7A1E2293BD00D027D0 /* DetailViewController.swift in Sources */,

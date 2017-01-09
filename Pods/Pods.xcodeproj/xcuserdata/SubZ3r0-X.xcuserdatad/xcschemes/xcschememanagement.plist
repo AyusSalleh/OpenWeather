@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>EZLoadingActivity.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-CodingChallenge.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1D4EA8DE96A8AB831EBE0B38E7481CCD</key>
+		<key>74C6C05A50292A6CE7B3C5E11A1F8F3C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>51C6F7608EDAFFB81E02CA0D5FBFE31D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B68B30BAA59D3C581E36B229F5026576</key>
+		<key>9B9C84019F22664D72090B12FFE8399C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import EZLoadingActivity
 
 class BaseViewController: UIViewController {
 

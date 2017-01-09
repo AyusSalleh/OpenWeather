@@ -1,9 +1,7 @@
 PODS:
-  - EZLoadingActivity (1.01)
   - SCLAlertView (0.7.0)
 
 DEPENDENCIES:
-  - EZLoadingActivity
   - SCLAlertView (from `https://github.com/vikmeup/SCLAlertView-Swift`)
 
 EXTERNAL SOURCES:
@@ -16,9 +14,8 @@ CHECKOUT OPTIONS:
     :git: https://github.com/vikmeup/SCLAlertView-Swift
 
 SPEC CHECKSUMS:
-  EZLoadingActivity: edd7e387e5197b116ce2cccb3fd747ababc2a510
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
 
-PODFILE CHECKSUM: cda763a4aa14325eb793128b45419f01e1d43501
+PODFILE CHECKSUM: 05d53f94917f3076503dbd49b62ad82019a14b03
 
 COCOAPODS: 1.1.1
