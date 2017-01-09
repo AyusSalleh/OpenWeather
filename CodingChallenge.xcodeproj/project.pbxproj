@@ -81,8 +81,10 @@
 		823D63951E1F7E2900F52F1A /* CodingChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				823D63AF1E1F7F4200F52F1A /* Play-Bold.ttf */,
-				823D63B01E1F7F4200F52F1A /* Play-Regular.ttf */,
+				82CD3B831E23343900D027D0 /* Font */,
+				82CD3B821E23342B00D027D0 /* BaseView */,
+				82CD3B811E23341B00D027D0 /* ViewController */,
+				82CD3B801E2333FB00D027D0 /* CustomCell */,
 				823D63A01E1F7E2900F52F1A /* Assets.xcassets */,
 				823D63A21E1F7E2900F52F1A /* LaunchScreen.storyboard */,
 				823D63A51E1F7E2900F52F1A /* Info.plist */,
@@ -90,11 +92,41 @@
 				823D63961E1F7E2900F52F1A /* AppDelegate.swift */,
 				823D639A1E1F7E2900F52F1A /* Main.storyboard */,
 				823D63981E1F7E2900F52F1A /* ViewController.swift */,
-				82CD3B751E1FA58600D027D0 /* CustomWeatherTableViewCell.swift */,
-				82CD3B771E228EFD00D027D0 /* BaseViewController.swift */,
-				82CD3B791E2293BD00D027D0 /* DetailViewController.swift */,
 			);
 			path = CodingChallenge;
+			sourceTree = "<group>";
+		};
+		82CD3B801E2333FB00D027D0 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				82CD3B751E1FA58600D027D0 /* CustomWeatherTableViewCell.swift */,
+			);
+			name = CustomCell;
+			sourceTree = "<group>";
+		};
+		82CD3B811E23341B00D027D0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				82CD3B791E2293BD00D027D0 /* DetailViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		82CD3B821E23342B00D027D0 /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				82CD3B771E228EFD00D027D0 /* BaseViewController.swift */,
+			);
+			name = BaseView;
+			sourceTree = "<group>";
+		};
+		82CD3B831E23343900D027D0 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				823D63AF1E1F7F4200F52F1A /* Play-Bold.ttf */,
+				823D63B01E1F7F4200F52F1A /* Play-Regular.ttf */,
+			);
+			name = Font;
 			sourceTree = "<group>";
 		};
 		93008EB01B6E82450AA014D6 /* Pods */ = {
