@@ -162,6 +162,7 @@
 				823D63911E1F7E2900F52F1A /* Resources */,
 				6D9B192767BD17864BF11F16 /* [CP] Embed Pods Frameworks */,
 				CABE15FAEB6580A56C195DFC /* [CP] Copy Pods Resources */,
+				829F37AB1E24DB72004C8BC7 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -251,6 +252,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CodingChallenge/Pods-CodingChallenge-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		829F37AB1E24DB72004C8BC7 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint does not exist, download it from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		CABE15FAEB6580A56C195DFC /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

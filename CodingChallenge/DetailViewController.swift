@@ -17,7 +17,6 @@ class DetailViewController: BaseViewController {
     @IBOutlet weak var weatherPressure: UILabel!
     @IBOutlet weak var weatherHumidity: UILabel!
     
-    
     var detailArr = Dictionary<String, AnyObject>()
     var iconData = Data()
     

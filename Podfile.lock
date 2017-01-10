@@ -1,8 +1,12 @@
 PODS:
   - SCLAlertView (0.7.0)
+  - SwiftLint (0.15.0)
+  - SwiftyJSON (3.1.3)
 
 DEPENDENCIES:
   - SCLAlertView (from `https://github.com/vikmeup/SCLAlertView-Swift`)
+  - SwiftLint
+  - SwiftyJSON
 
 EXTERNAL SOURCES:
   SCLAlertView:
@@ -15,7 +19,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
+  SwiftLint: d73999f81682ab8114d6408c89f83177b2c197d7
+  SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
 
-PODFILE CHECKSUM: 05d53f94917f3076503dbd49b62ad82019a14b03
+PODFILE CHECKSUM: 8de48ca2557b0df2cfdc7289b66721523630e643
 
 COCOAPODS: 1.1.1
