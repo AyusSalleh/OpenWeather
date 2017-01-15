@@ -9,7 +9,6 @@
 import UIKit
 import SCLAlertView
 import CoreLocation
-import SwiftyJSON
 
 class ViewController: BaseViewController, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate {
 
@@ -100,9 +99,6 @@ class ViewController: BaseViewController, CLLocationManagerDelegate, UITableView
                         cell.weatherTemp.text = "\(weatherOptional)℃"
                     }
                 }
-                //cell.weatherType.text = "\((listArr[indexPath.row]["weather"] as? [Dictionary<String, Any>])?[0]["main"]!)".capitalized
-                //cell.weatherDesc.text = "\((listArr[indexPath.row]["weather"] as? [Dictionary<String, Any>])?[0]["description"]!)".capitalized
-                //cell.weatherTemp.text = "\(listArr[indexPath.row]["main"]!["temp"]!!)℃"
                 
                 if let getDateTime = listArr[indexPath.row]["dt_txt"] as? String {
                     let f = DateFormatter()
@@ -123,23 +119,6 @@ class ViewController: BaseViewController, CLLocationManagerDelegate, UITableView
                         cell.weatherDateTime.text = "\(separateDate[2].replacingOccurrences(of: "0", with: "")) \(getMonthFullName) \(separateDate[0]) \(separateTime[0]):\(separateTime[1]):\(separateTime[2]) AM"
                     }
                 }
-                /*let getDateTime = "\(listArr[indexPath.row]["dt_txt"]!)"
-                let f = DateFormatter()
-                f.locale = Locale(identifier: "en_GB")
-                f.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                let hookDateTime = f.date(from: getDateTime)!
-                let stringDateTime = f.string(from: hookDateTime)
-                let separateDate = stringDateTime.components(separatedBy: " ")[0].components(separatedBy: "-")
-                let separateTime = stringDateTime.components(separatedBy: " ")[1].components(separatedBy: ":")
-                
-                let ampm = "\(stringDateTime)".components(separatedBy: " ")[1].components(separatedBy: ":")[0]
-                
-                if Int(ampm)! > 12 {
-                    cell.weatherDateTime.text = "\(separateDate[2].replacingOccurrences(of: "0", with: "")) \(getMonthFullName(separateDate[1])) \(separateDate[0]) \(Int(separateTime[0])!-12):\(separateTime[1]):\(separateTime[2]) PM"
-                } else {
-                    cell.weatherDateTime.text = "\(separateDate[2].replacingOccurrences(of: "0", with: "")) \(getMonthFullName(separateDate[1])) \(separateDate[0]) \(separateTime[0]):\(separateTime[1]):\(separateTime[2]) AM"
-                }*/
-                
                 weatherTableView.isHidden = false
                 self.hideHUD()
                 return cell
@@ -213,30 +192,6 @@ class ViewController: BaseViewController, CLLocationManagerDelegate, UITableView
                             }
                             
                         }
-                        /*if json["cod"] as? String == "200" {
-                            
-                            if let detailArr = json["list"] as? [Dictionary<String, Any>] {
-                                for detail in detailArr {
-                                    self.listArr.append(detail)
-                                    
-                                    if let getWeatherDetail = detail["weather"] {
-                                        let iconID2 = getWeatherDetail
-                                        let iconID = "\((detail["weather"] as? [Dictionary<String, Any>])?[0]["icon"]!)"
-                                        let url = URL(string: "http://openweathermap.org/img/w/\(iconID).png")
-                                        let data = try? Data(contentsOf: url!)
-                                        
-                                        self.dataIconArr.append(data!)
-                                    }
-                                    
-                                }
-                                
-                                self.weatherTableView.reloadData()
-                            }
-                            
-                        } else {
-                            self.errorHUD()
-                            self.showRetryMessage("error")
-                        }*/
                     }
                     
                 } catch {

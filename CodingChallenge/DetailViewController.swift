@@ -64,10 +64,6 @@ class DetailViewController: BaseViewController {
                 weatherPressure.text = "\(humidityOptional) %"
             }
         }
-        //weatherType.text = "\((detailArr["weather"] as? [Dictionary<String, Any>])?[0]["main"]!)".capitalized
-        //weatherDesc.text = "\((detailArr["weather"] as? [Dictionary<String, Any>])?[0]["description"]!)".capitalized
-        //weatherPressure.text = "\(detailArr["main"]!["pressure"]!!) hpa"
-        //weatherHumidity.text = "\(detailArr["main"]!["humidity"]!!) %"
         // Do any additional setup after loading the view.
     }
     
