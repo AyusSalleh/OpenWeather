@@ -9,6 +9,7 @@
 import UIKit
 import SCLAlertView
 import CoreLocation
+import SwiftyJSON
 
 class ViewController: BaseViewController, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate {
 
@@ -18,7 +19,7 @@ class ViewController: BaseViewController, CLLocationManagerDelegate, UITableView
     var locationManager: CLLocationManager!
     var geocoder: CLGeocoder!
     var placemark: CLPlacemark!
-    var listArr = [Dictionary<String, AnyObject>]()
+    var listArr = [Dictionary<String, Any>]()
     var dataIconArr = [Data]()
     
     override func viewDidLoad() {
@@ -79,48 +80,86 @@ class ViewController: BaseViewController, CLLocationManagerDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
         if listArr.count != 0 {
-            let cell = weatherTableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomWeatherTableViewCell
-            
-            cell.weatherImg.image = UIImage(data: dataIconArr[indexPath.row])
-            cell.weatherType.text = "\((listArr[indexPath.row]["weather"] as! [Dictionary<String, AnyObject>])[0]["main"]!)".capitalized
-            cell.weatherDesc.text = "\((listArr[indexPath.row]["weather"] as! [Dictionary<String, AnyObject>])[0]["description"]!)".capitalized
-            cell.weatherTemp.text = "\(listArr[indexPath.row]["main"]!["temp"]!!)℃"
-            
-            let getDateTime = "\(listArr[indexPath.row]["dt_txt"]!)"
-            let f = DateFormatter()
-            f.locale = Locale(identifier: "en_GB")
-            f.dateFormat = "yyyy-MM-dd HH:mm:ss"
-            let hookDateTime = f.date(from: getDateTime)!
-            let stringDateTime = f.string(from: hookDateTime)
-            let separateDate = stringDateTime.components(separatedBy: " ")[0].components(separatedBy: "-")
-            let separateTime = stringDateTime.components(separatedBy: " ")[1].components(separatedBy: ":")
-            
-            let ampm = "\(stringDateTime)".components(separatedBy: " ")[1].components(separatedBy: ":")[0]
-            
-            if Int(ampm)! > 12 {
-                cell.weatherDateTime.text = "\(separateDate[2].replacingOccurrences(of: "0", with: "")) \(getMonthFullName(separateDate[1])) \(separateDate[0]) \(Int(separateTime[0])!-12):\(separateTime[1]):\(separateTime[2]) PM"
-            } else {
-                cell.weatherDateTime.text = "\(separateDate[2].replacingOccurrences(of: "0", with: "")) \(getMonthFullName(separateDate[1])) \(separateDate[0]) \(separateTime[0]):\(separateTime[1]):\(separateTime[2]) AM"
+            if let cell = weatherTableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? CustomWeatherTableViewCell {
+                cell.weatherImg.image = UIImage(data: dataIconArr[indexPath.row])
+                
+                if let detailArr = listArr[indexPath.row]["weather"] as? [[String : Any]] {
+                    if let weatherTypeOptional = detailArr[0]["main"] as? String {
+                        cell.weatherType.text = weatherTypeOptional.capitalized
+                    }
+                    
+                    if let weatherDescOptional = detailArr[0]["description"] as? String {
+                        cell.weatherDesc.text = weatherDescOptional.capitalized
+                    }
+                }
+                
+                if let weatherTempArr = listArr[indexPath.row]["main"] as? [String : Any] {
+                    if let weatherOptional = weatherTempArr["temp"] {
+                        cell.weatherTemp.text = "\(weatherOptional)℃"
+                    }
+                }
+                //cell.weatherType.text = "\((listArr[indexPath.row]["weather"] as? [Dictionary<String, Any>])?[0]["main"]!)".capitalized
+                //cell.weatherDesc.text = "\((listArr[indexPath.row]["weather"] as? [Dictionary<String, Any>])?[0]["description"]!)".capitalized
+                //cell.weatherTemp.text = "\(listArr[indexPath.row]["main"]!["temp"]!!)℃"
+                
+                if let getDateTime = listArr[indexPath.row]["dt_txt"] as? String {
+                    let f = DateFormatter()
+                    f.locale = Locale(identifier: "en_GB")
+                    f.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                    let hookDateTime = f.date(from: getDateTime)!
+                    let stringDateTime = f.string(from: hookDateTime)
+                    let separateDate = stringDateTime.components(separatedBy: " ")[0].components(separatedBy: "-")
+                    let separateTime = stringDateTime.components(separatedBy: " ")[1].components(separatedBy: ":")
+                    
+                    let ampm = "\(stringDateTime)".components(separatedBy: " ")[1].components(separatedBy: ":")[0]
+                    
+                    if Int(ampm)! > 12 {
+                        let getMonthFullName = Utility.sharedInstance.getMonthFullName(separateDate[1])
+                        cell.weatherDateTime.text = "\(separateDate[2].replacingOccurrences(of: "0", with: "")) \(getMonthFullName) \(separateDate[0]) \(Int(separateTime[0])!-12):\(separateTime[1]):\(separateTime[2]) PM"
+                    } else {
+                        let getMonthFullName = Utility.sharedInstance.getMonthFullName(separateDate[1])
+                        cell.weatherDateTime.text = "\(separateDate[2].replacingOccurrences(of: "0", with: "")) \(getMonthFullName) \(separateDate[0]) \(separateTime[0]):\(separateTime[1]):\(separateTime[2]) AM"
+                    }
+                }
+                /*let getDateTime = "\(listArr[indexPath.row]["dt_txt"]!)"
+                let f = DateFormatter()
+                f.locale = Locale(identifier: "en_GB")
+                f.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                let hookDateTime = f.date(from: getDateTime)!
+                let stringDateTime = f.string(from: hookDateTime)
+                let separateDate = stringDateTime.components(separatedBy: " ")[0].components(separatedBy: "-")
+                let separateTime = stringDateTime.components(separatedBy: " ")[1].components(separatedBy: ":")
+                
+                let ampm = "\(stringDateTime)".components(separatedBy: " ")[1].components(separatedBy: ":")[0]
+                
+                if Int(ampm)! > 12 {
+                    cell.weatherDateTime.text = "\(separateDate[2].replacingOccurrences(of: "0", with: "")) \(getMonthFullName(separateDate[1])) \(separateDate[0]) \(Int(separateTime[0])!-12):\(separateTime[1]):\(separateTime[2]) PM"
+                } else {
+                    cell.weatherDateTime.text = "\(separateDate[2].replacingOccurrences(of: "0", with: "")) \(getMonthFullName(separateDate[1])) \(separateDate[0]) \(separateTime[0]):\(separateTime[1]):\(separateTime[2]) AM"
+                }*/
+                
+                weatherTableView.isHidden = false
+                self.hideHUD()
+                return cell
             }
-            
-            weatherTableView.isHidden = false
-            self.hideHUD()
-            return cell
         }
         
-        let cell = weatherTableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomWeatherTableViewCell
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if listArr.count != 0 {
             let storyboard2 = UIStoryboard(name: "Main", bundle: nil)
-            let DetailVC = storyboard2.instantiateViewController(withIdentifier: "DetailVC") as! DetailViewController
-            DetailVC.detailArr = listArr[indexPath.row]
-            DetailVC.iconData = dataIconArr[indexPath.row]
-            self.navigationController?.pushViewController(DetailVC, animated: true)
-            self.weatherTableView.deselectRow(at: indexPath, animated: true)
+
+            if let DetailVC = storyboard2.instantiateViewController(withIdentifier: "DetailVC") as? DetailViewController {
+                DetailVC.detailArr = listArr[indexPath.row]
+                DetailVC.iconData = dataIconArr[indexPath.row]
+                self.navigationController?.pushViewController(DetailVC, animated: true)
+                self.weatherTableView.deselectRow(at: indexPath, animated: true)
+            }
+
         }
     }
     
@@ -132,8 +171,7 @@ class ViewController: BaseViewController, CLLocationManagerDelegate, UITableView
         let newPlaceName = placeName.replacingOccurrences(of: " ", with: "")
         let url = URL(string: "http://api.openweathermap.org/data/2.5/forecast?q=\(newPlaceName)&units=metric&APPID=\(appID)")!
         
-        let task = session.dataTask(with: url, completionHandler: {
-            (data, response, error) in
+        let task = session.dataTask(with: url, completionHandler: { (data, _, error) in
             
             if error != nil {
                 self.errorHUD()
@@ -142,29 +180,63 @@ class ViewController: BaseViewController, CLLocationManagerDelegate, UITableView
             } else {
                 
                 do {
-                    
-                    if let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any]
-                    {
+                    //let json = try JSON(JSONSerialization.jsonObject(with: successResult.data, options: .mutableContainers))
+
+                    if let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? Dictionary<String, Any> {
                         //Implement your logic
-                        if json["cod"] as! String == "200" {
-                            let detailArr = json["list"] as! [Dictionary<String, AnyObject>]
+                        
+                        if let responseCode = json["cod"] as? String {
                             
-                            for detail in detailArr {
-                                self.listArr.append(detail)
+                            if responseCode == "200" {                                
                                 
-                                let iconID = "\((detail["weather"] as! [Dictionary<String, AnyObject>])[0]["icon"]!)"
-                                let url = URL(string: "http://openweathermap.org/img/w/\(iconID).png")
-                                let data = try? Data(contentsOf: url!)
+                                if let detailArr = json["list"] as? [Dictionary<String, Any>] {
+                                    
+                                    for detail in detailArr {
+                                        self.listArr.append(detail)
+                                        
+                                        if let getWeatherDetail = detail["weather"] as? [[String : Any]] {
+                                            if let iconID = getWeatherDetail[0]["icon"] as? String {
+                                                if let url = URL(string: "http://openweathermap.org/img/w/\(iconID).png") {
+                                                    if let data = try? Data(contentsOf: url) {
+                                                        self.dataIconArr.append(data)
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    self.weatherTableView.reloadData()
+                                }
                                 
-                                self.dataIconArr.append(data!)
+                            } else {
+                                self.errorHUD()
+                                self.showRetryMessage("error")
                             }
                             
-                            self.weatherTableView.reloadData()
+                        }
+                        /*if json["cod"] as? String == "200" {
+                            
+                            if let detailArr = json["list"] as? [Dictionary<String, Any>] {
+                                for detail in detailArr {
+                                    self.listArr.append(detail)
+                                    
+                                    if let getWeatherDetail = detail["weather"] {
+                                        let iconID2 = getWeatherDetail
+                                        let iconID = "\((detail["weather"] as? [Dictionary<String, Any>])?[0]["icon"]!)"
+                                        let url = URL(string: "http://openweathermap.org/img/w/\(iconID).png")
+                                        let data = try? Data(contentsOf: url!)
+                                        
+                                        self.dataIconArr.append(data!)
+                                    }
+                                    
+                                }
+                                
+                                self.weatherTableView.reloadData()
+                            }
                             
                         } else {
                             self.errorHUD()
                             self.showRetryMessage("error")
-                        }
+                        }*/
                     }
                     
                 } catch {
@@ -176,7 +248,7 @@ class ViewController: BaseViewController, CLLocationManagerDelegate, UITableView
         task.resume()
     }
     
-    func showRetryMessage(_ message : String){
+    func showRetryMessage(_ message: String) {
         
         let appearance = SCLAlertView.SCLAppearance(
             kTitleFont: UIFont(name: "Play-Bold", size: 14)!,
@@ -187,13 +259,14 @@ class ViewController: BaseViewController, CLLocationManagerDelegate, UITableView
         
         let errorView = SCLAlertView(appearance: appearance)
         errorView.addButton("Retry") { () -> Void in
-            self.loadWeather(self.defaults.object(forKey: "placeName") as! String)
+            let placeName = "\(self.defaults.object(forKey: "placeName")!)"
+            self.loadWeather(placeName)
         }
         
         errorView.showError("Error!", subTitle:"Something wrong happened. Please try again :(", colorStyle: 0xFF0000)
     }
     
-    func showErrorMessage(_ message : String){
+    func showErrorMessage(_ message: String) {
         
         // Create custom Appearance Configuration
         let appearance = SCLAlertView.SCLAppearance(
@@ -212,4 +285,3 @@ class ViewController: BaseViewController, CLLocationManagerDelegate, UITableView
         
     }
 }
-

@@ -17,33 +17,57 @@ class DetailViewController: BaseViewController {
     @IBOutlet weak var weatherPressure: UILabel!
     @IBOutlet weak var weatherHumidity: UILabel!
     
-    var detailArr = Dictionary<String, AnyObject>()
+    var detailArr = Dictionary<String, Any>()
     var iconData = Data()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         iconImageView.image = UIImage(data: iconData)
-        let getDateTime = "\(detailArr["dt_txt"]!)"
-        let f = DateFormatter()
-        f.locale = Locale(identifier: "en_GB")
-        f.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let hookDateTime = f.date(from: getDateTime)!
-        let stringDateTime = f.string(from: hookDateTime)
-        let separateDate = stringDateTime.components(separatedBy: " ")[0].components(separatedBy: "-")
-        let separateTime = stringDateTime.components(separatedBy: " ")[1].components(separatedBy: ":")
         
-        let ampm = "\(stringDateTime)".components(separatedBy: " ")[1].components(separatedBy: ":")[0]
-        
-        if Int(ampm)! > 12 {
-            dateTime.text = "\(separateDate[2].replacingOccurrences(of: "0", with: "")) \(getMonthFullName(separateDate[1])) \(separateDate[0]) \(Int(separateTime[0])!-12):\(separateTime[1]):\(separateTime[2]) PM"
-        } else {
-            dateTime.text = "\(separateDate[2].replacingOccurrences(of: "0", with: "")) \(getMonthFullName(separateDate[1])) \(separateDate[0]) \(separateTime[0]):\(separateTime[1]):\(separateTime[2]) AM"
+        if let getDateTime = detailArr["dt_txt"] as? String {
+            let f = DateFormatter()
+            f.locale = Locale(identifier: "en_GB")
+            f.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            let hookDateTime = f.date(from: getDateTime)!
+            let stringDateTime = f.string(from: hookDateTime)
+            let separateDate = stringDateTime.components(separatedBy: " ")[0].components(separatedBy: "-")
+            let separateTime = stringDateTime.components(separatedBy: " ")[1].components(separatedBy: ":")
+            
+            let ampm = "\(stringDateTime)".components(separatedBy: " ")[1].components(separatedBy: ":")[0]
+            
+            if Int(ampm)! > 12 {
+                let getMonthFullName = Utility.sharedInstance.getMonthFullName(separateDate[1])
+                dateTime.text = "\(separateDate[2].replacingOccurrences(of: "0", with: "")) \(getMonthFullName) \(separateDate[0]) \(Int(separateTime[0])!-12):\(separateTime[1]):\(separateTime[2]) PM"
+            } else {
+                let getMonthFullName = Utility.sharedInstance.getMonthFullName(separateDate[1])
+                dateTime.text = "\(separateDate[2].replacingOccurrences(of: "0", with: "")) \(getMonthFullName) \(separateDate[0]) \(separateTime[0]):\(separateTime[1]):\(separateTime[2]) AM"
+            }
+
         }
         
-        weatherType.text = "\((detailArr["weather"] as! [Dictionary<String, AnyObject>])[0]["main"]!)".capitalized
-        weatherDesc.text = "\((detailArr["weather"] as! [Dictionary<String, AnyObject>])[0]["description"]!)".capitalized
-        weatherPressure.text = "\(detailArr["main"]!["pressure"]!!) hpa"
-        weatherHumidity.text = "\(detailArr["main"]!["humidity"]!!) %"
+        if let weatherDetail = detailArr["weather"] as? [[String : Any]] {
+            if let weatherTypeOptional = weatherDetail[0]["main"] as? String {
+                weatherType.text = weatherTypeOptional.capitalized
+            }
+            
+            if let weatherDescOptional = weatherDetail[0]["description"] as? String {
+                weatherDesc.text = weatherDescOptional.capitalized
+            }
+        }
+
+        if let mainDetail = detailArr["main"] as? [String : Any] {
+            if let pressureOptional = mainDetail["pressure"] {
+                weatherPressure.text = "\(pressureOptional) hpa"
+            }
+            
+            if let humidityOptional = mainDetail["humidity"] {
+                weatherPressure.text = "\(humidityOptional) %"
+            }
+        }
+        //weatherType.text = "\((detailArr["weather"] as? [Dictionary<String, Any>])?[0]["main"]!)".capitalized
+        //weatherDesc.text = "\((detailArr["weather"] as? [Dictionary<String, Any>])?[0]["description"]!)".capitalized
+        //weatherPressure.text = "\(detailArr["main"]!["pressure"]!!) hpa"
+        //weatherHumidity.text = "\(detailArr["main"]!["humidity"]!!) %"
         // Do any additional setup after loading the view.
     }
     
@@ -55,7 +79,6 @@ class DetailViewController: BaseViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     /*
     // MARK: - Navigation

@@ -16,7 +16,6 @@ class CustomWeatherTableViewCell: UITableViewCell {
     @IBOutlet weak var weatherDesc: UILabel!
     @IBOutlet weak var weatherTemp: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

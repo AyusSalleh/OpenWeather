@@ -75,13 +75,13 @@ public struct EZLoadingActivity {
     @discardableResult
     public static func showWithDelay(_ text: String, disableUI: Bool, seconds: Double) -> Bool {
         let showValue = show(text, disableUI: disableUI)
-        delay(seconds) { () -> () in
+        delay(seconds) { () -> Void in
             _ = hide(true, animated: false)
         }
         return showValue
     }
     
-    public static func showOnController(_ text: String, disableUI: Bool, controller:UIViewController) -> Bool{
+    public static func showOnController(_ text: String, disableUI: Bool, controller: UIViewController) -> Bool {
         guard instance == nil else {
             print("EZLoadingActivity: You still have an active activity, please stop that before creating a new one")
             return false
@@ -126,7 +126,7 @@ public struct EZLoadingActivity {
         return true
     }
     
-    fileprivate static func delay(_ seconds: Double, after: @escaping ()->()) {
+    fileprivate static func delay(_ seconds: Double, after: @escaping ()->Void) {
         let queue = DispatchQueue.main
         let time = DispatchTime.now() + Double(Int64(seconds * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
         queue.asyncAfter(deadline: time, execute: after)
@@ -189,7 +189,7 @@ public struct EZLoadingActivity {
             })
         }
         
-        func showLoadingWithController(_ controller:UIViewController){
+        func showLoadingWithController(_ controller: UIViewController) {
             addSubview(activityView)
             addSubview(textLabel)
             
@@ -262,10 +262,10 @@ public struct EZLoadingActivity {
                 activityView.stopAnimating()
                 UIView.animate(withDuration: animationDuration, animations: {
                     self.icon.alpha = 1
-                    }, completion: { (value: Bool) in
+                    }, completion: { (_) in
                         UIView.animate(withDuration: 0.2, animations: {
                             self.alpha = 0
-                            }, completion: { (success) in
+                            }, completion: { (_) in
                                 self.callSelectorAsync(#selector(UIView.removeFromSuperview), delay: animationDuration)
                         })
                         instance = nil

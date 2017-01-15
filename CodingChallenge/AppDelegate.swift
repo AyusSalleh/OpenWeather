@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationBarAppearace = UINavigationBar.appearance()
         let font = UIFont(name: "Play-Bold", size: 17)
         if let font = font {
-            navigationBarAppearace.titleTextAttributes = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.orange];
+            navigationBarAppearace.titleTextAttributes = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.orange]
         }
         
         navigationBarAppearace.barTintColor =  hexStringToUIColor(hex: "#505050")
@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          error conditions that could cause the creation of the store to fail.
         */
         let container = NSPersistentContainer(name: "CodingChallenge")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -98,8 +98,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func hexStringToUIColor(hex:String) -> UIColor {
-        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+    func hexStringToUIColor(hex: String) -> UIColor {
+        var cString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
         if (cString.hasPrefix("#")) {
             cString.remove(at: cString.startIndex)
@@ -109,7 +109,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return UIColor.gray
         }
         
-        var rgbValue:UInt32 = 0
+        var rgbValue: UInt32 = 0
         Scanner(string: cString).scanHexInt32(&rgbValue)
         
         return UIColor(
@@ -121,4 +121,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-
